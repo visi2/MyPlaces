@@ -17,6 +17,14 @@ class MainViewController: UIViewController {
         
         setupTable()
         view.addSubview(table)
+        self.title = "My Places"
+        let tlabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        tlabel.text = self.title
+        tlabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        tlabel.backgroundColor = UIColor.clear
+        tlabel.adjustsFontSizeToFitWidth = true
+        tlabel.textAlignment = .center
+        self.navigationItem.titleView = tlabel
     }
 
 
@@ -44,5 +52,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 85
     }
 }
